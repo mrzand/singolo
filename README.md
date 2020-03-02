@@ -1,1 +1,1 @@
-https://mrzand.github.io/singolo/singolo1.html
+https://mrzand.github.io/singolo/index.html
