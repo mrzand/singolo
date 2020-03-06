@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>singolo</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
-
   <body>
-
     <main>
-
+      <!-- HEADER -->
       <header>
-        <h1 class="logo">singolo</h1>
+        <h1 class="logo">
+          singolo
+          <span>*</span>
+        </h1>
         <nav>
           <ul>
             <li class="active"><a href="/">home</a></li>
@@ -24,7 +24,7 @@
           </ul>
         </nav>
       </header>
-
+      <!-- SLIDER BLOCK -->
       <div class="slider">
         <div class="slider-prev">
           <img src="./assets/img/left-arrow.png" alt="prev" />
@@ -33,10 +33,47 @@
           <img src="./assets/img/right-arrow.png" alt="next" />
         </div>
         <div class="card first">
-          <img src="./assets/img/slider-image.png" alt="presentation" />
+          <div class="phone-vertical-wrapper">
+            <div class="phone-vertical">
+              <img
+                class="phone-vertical-img"
+                src="./assets/img/phone-vertical.png"
+                alt="phone"
+              />
+              <img
+                class="phone-vertical-screen"
+                src="./assets/img/phone-vertical-screen.jpg"
+                alt="phone-screen"
+              />
+              <img
+                class="phone-home-button"
+                src="./assets/img/phone-home-button.png"
+                alt="phone-home-button"
+              />
+            </div>
+          </div>
+          <div class="phone-horizontal-wrapper">
+            <div class="phone-horizontal">
+              <img
+                class="phone-horizontal-img"
+                src="./assets/img/phone-horizontal.png"
+                alt="phone"
+              />
+              <img
+                class="phone-horizontal-screen"
+                src="./assets/img/phone-horizontal-screen.jpg"
+                alt="phone-screen"
+              />
+              <img
+                class="phone-home-button"
+                src="./assets/img/phone-home-button.png"
+                alt="phone-home-button"
+              />
+            </div>
+          </div>
         </div>
       </div>
-
+      <!-- SERVIVES SECTION -->
       <section class="services" id="services">
         <h2>Our Services</h2>
         <p class="services-description">
@@ -138,7 +175,7 @@
           </div>
         </div>
       </section>
-
+      <!-- PORTFOLIO SECTION -->
       <section class="portfolio" id="portfolio">
         <h2>Portfolio</h2>
         <p>
@@ -216,7 +253,7 @@
           </div>
         </div>
       </section>
-
+      <!-- ABOUT US SECTION -->
       <section class="about" id="about">
         <h2>About Us</h2>
         <p class="section-description">
@@ -306,7 +343,7 @@
           </div>
         </div>
       </section>
-
+      <!-- QUOTE SECTION -->
       <section class="quote" id="quote">
         <h2>Get a Quote</h2>
         <p class="section-description">
@@ -316,7 +353,7 @@
           tortor mauris condimentum nibh.
         </p>
         <div class="quote-form">
-          <form class="form-container">
+          <form class="form-container" action="#" method="get">
             <input type="text" placeholder="Name (Required)" required />
             <input type="email" placeholder="Email (Required)" required />
             <input type="text" placeholder="Subject" />
@@ -368,7 +405,7 @@
           </div>
         </div>
       </section>
-
+      <!-- FOOTER SECTION -->
       <footer>
         <p class="footer-info">
           © Copyright 2013 · by PSDchat.com
@@ -388,8 +425,6 @@
           </a>
         </div>
       </footer>
-
     </main>
-    
   </body>
 </html>
