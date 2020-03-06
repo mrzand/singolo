@@ -19,11 +19,6 @@
   src: url("./assets/fonts/Lato-Black.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "Bold";
-  src: url("./assets/fonts/Bold.ttf") format("truetype");
-}
-
 /* MAIN */
 * {
   padding: 0;
