@@ -26,6 +26,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #e0e0e0;
 }
@@ -772,6 +776,9 @@ footer {
 .modal-description {
   font-family: "Lato Regular";
   font-size: 18px;
+  text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
 }
 
 .modal-button {
