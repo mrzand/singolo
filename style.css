@@ -225,6 +225,28 @@ header ul li a:hover {
   z-index: 2;
 }
 
+.phone-vertical-block {
+  display: block;
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 212px;
+  height: 456px;
+  border-radius: 26px;
+  z-index: 3;
+}
+
+.phone-horizontal-block {
+  display: block;
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 456px;
+  height: 212px;
+  border-radius: 26px;
+  z-index: 3;
+}
+
 .slider-prev {
   position: absolute;
   width: 100px;
@@ -777,8 +799,9 @@ footer {
   font-family: "Lato Regular";
   font-size: 18px;
   text-overflow: ellipsis;
-    overflow: hidden;
-    width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .modal-button {

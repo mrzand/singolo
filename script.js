@@ -4,11 +4,15 @@ const MENU_ITEM = MENU.querySelectorAll("li a");
 const PORTFOLIO_TAB = document.getElementById("portfolio-tabs");
 const PORTFOLIO_TAB_ITEM = PORTFOLIO_TAB.getElementsByTagName("li");
 const PORTFOLIO_PROJECT = document.querySelector(".projects");
-const PORTFOLIO_PROJECT_ITEM = PORTFOLIO_PROJECT.querySelectorAll(".project img");
-const VERTICAL_PHONE = document.querySelector(".phone-vertical");
-const HORIZONTAL_PHONE = document.querySelector(".phone-horizontal");
+const PORTFOLIO_PROJECT_ITEM = PORTFOLIO_PROJECT.querySelectorAll(
+  ".project img"
+);
+const VERTICAL_PHONE = document.querySelector(".phone-vertical-block");
+const HORIZONTAL_PHONE = document.querySelector(".phone-horizontal-block");
 const VERTICAL_PHONE_SCREEN = document.querySelector(".phone-vertical-screen");
-const HORIZONTAL_PHONE_SCREEN = document.querySelector(".phone-horizontal-screen");
+const HORIZONTAL_PHONE_SCREEN = document.querySelector(
+  ".phone-horizontal-screen"
+);
 const SUBMIT_BUTTON = document.querySelector(".submit-form-button");
 const MODAL = document.querySelector(".modal-container");
 const MODAL_BUTTON = document.querySelector(".modal-button");
