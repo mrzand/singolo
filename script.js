@@ -26,9 +26,9 @@ const PREV_SLIDER_BUTTON = document.querySelector(".slider-prev img");
 // LIST ITEMS NAVIGATION
 function activateItem(listContainer, listItem, fnCallback) {
   for (var i = 0; i < listItem.length; i++) {
-    listItem[i].addEventListener("click", function () {
+    listItem[i].addEventListener("click", function() {
       var el = listContainer.querySelectorAll(".active");
-      if (fnCallback) fnCallback(frq, projectsArray);
+      if (fnCallback) fnCallback();
       if (el.length > 0) {
         el[0].className = el[0].className.replace("active", "");
       }
@@ -42,7 +42,10 @@ document.addEventListener("scroll", onScroll);
 function onScroll(event) {
   const CURRENT_POSITION = window.scrollY;
   SECTION.forEach(el => {
-    if (el.offsetTop <= CURRENT_POSITION + 95 && (el.offsetTop + el.offsetHeight) > CURRENT_POSITION) {
+    if (
+      el.offsetTop <= CURRENT_POSITION + 95 &&
+      el.offsetTop + el.offsetHeight > CURRENT_POSITION
+    ) {
       MENU_LIST_ITEM.forEach(a => {
         a.classList.remove("active");
         if (el.getAttribute("id") === a.getAttribute("href").substring(1)) {
@@ -54,17 +57,27 @@ function onScroll(event) {
 }
 
 // PORTFOLIO IMAGE SHUFFLE
-let projectsArray = document.querySelectorAll(".project");
-let rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-let frq = rand(1, 12);
-function shuffle(frq, arr) {
-  for (let i = 0; i < frq; i++) {
-    for (let k = 0; k < arr.length; k++) {
-      let n = rand(1, 12);
-      let fx = arr[k];
-      fx.style.order = n;
-    }
+function shuffle() {
+  var container = document.querySelector(".projects");
+  var elementsArray = Array.prototype.slice.call(
+    container.getElementsByClassName("project")
+  );
+  elementsArray.forEach(function(element) {
+    container.removeChild(element);
+  });
+  shuffleArray(elementsArray);
+  elementsArray.forEach(function(element) {
+    container.appendChild(element);
+  });
+}
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
+  return array;
 }
 
 // HEADER NAVIGATION
@@ -144,28 +157,46 @@ MODAL_BUTTON.addEventListener("click", () => {
 });
 
 // SLIDER
-var slideIndex = 1;
-showSlides(slideIndex);
-PREV_SLIDER_BUTTON.addEventListener("click", () => {
-  showSlides((slideIndex += 1));
-});
-NEXT_SLIDER_BUTTON.addEventListener("click", () => {
-  showSlides((slideIndex -= 1));
-});
-function currentSlide(n) {
-  showSlides((slideIndex = n));
+let items = document.querySelectorAll(".slider .card");
+let currentItem = 0;
+let isEnabled = true;
+function changeCurrentItem(n) {
+  currentItem = (n + items.length) % items.length;
 }
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("card");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex - 1].style.display = "flex";
+function hideItem(direction) {
+  isEnabled = false;
+  items[currentItem].classList.add(direction);
+  items[currentItem].addEventListener("animationend", function() {
+    this.classList.remove("active", direction);
+  });
 }
+function showItem(direction) {
+  items[currentItem].classList.add("next", direction);
+  items[currentItem].addEventListener("animationend", function() {
+    this.classList.remove("next", direction);
+    this.classList.add("active");
+    isEnabled = true;
+  });
+}
+function nextItem(n) {
+  hideItem("to-left");
+  changeCurrentItem(n + 1);
+  showItem("from-right");
+}
+function previousItem(n) {
+  hideItem("to-right");
+  changeCurrentItem(n - 1);
+  showItem("from-left");
+}
+
+PREV_SLIDER_BUTTON.addEventListener("click", function() {
+  if (isEnabled) {
+    previousItem(currentItem);
+  }
+});
+
+NEXT_SLIDER_BUTTON.addEventListener("click", function() {
+  if (isEnabled) {
+    nextItem(currentItem);
+  }
+});
