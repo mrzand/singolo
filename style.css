@@ -61,7 +61,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  width: 1020px;
+  width: 100%;
+  max-width: 1020px;
   margin: 0 auto;
   height: 95px;
   display: flex;
@@ -74,6 +75,10 @@ header {
   text-transform: uppercase;
   color: #fff;
   z-index: 4;
+}
+
+.mobile-menu {
+  display: none;
 }
 
 .logo {
@@ -131,6 +136,8 @@ header ul li a {
 
 header ul li a.active {
   color: #f06c64;
+  user-select: none;
+  pointer-events: none;
 }
 
 header ul li a:hover {
@@ -896,20 +903,7 @@ footer {
 }
 
 /* MEDIA */
-@media screen and (max-width: 767px) {
-  header,
-  .services,
-  .portfolio p,
-  .portfolio h2,
-  .about {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  nav {
-    display: none;
-  }
-
+@media (max-width: 768px) {
   .slider {
     height: 400px;
   }
@@ -970,8 +964,55 @@ footer {
   }
 }
 
-@media screen and (max-width: 980px) {
-  .slider {
+@media (max-width: 375px) {
+  header,
+  .services,
+  .portfolio p,
+  .portfolio h2,
+  .about {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  header {
+    justify-content: center;
+  }
+
+  .logo {
+    top: -3px;
+    margin-left: 12px;
+  }
+
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    left: 20px;
+    z-index: 6;
+  }
+
+  .header-nav {
     display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(45, 48, 58, 0.6);
+    z-index: 5;
+  }
+
+  .header-nav ul {
+    width: 278px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #2d303a;
+    box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .header-nav.active {
+    display: flex;
   }
 }

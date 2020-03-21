@@ -6,11 +6,15 @@ const MENU_ITEM = MENU.querySelectorAll("li a");
 const PORTFOLIO_TAB = document.getElementById("portfolio-tabs");
 const PORTFOLIO_TAB_ITEM = PORTFOLIO_TAB.getElementsByTagName("li");
 const PORTFOLIO_PROJECT = document.querySelector(".projects");
-const PORTFOLIO_PROJECT_ITEM = PORTFOLIO_PROJECT.querySelectorAll(".project img");
+const PORTFOLIO_PROJECT_ITEM = PORTFOLIO_PROJECT.querySelectorAll(
+  ".project img"
+);
 const VERTICAL_PHONE = document.querySelector(".phone-vertical-block");
 const HORIZONTAL_PHONE = document.querySelector(".phone-horizontal-block");
 const VERTICAL_PHONE_SCREEN = document.querySelector(".phone-vertical-screen");
-const HORIZONTAL_PHONE_SCREEN = document.querySelector(".phone-horizontal-screen");
+const HORIZONTAL_PHONE_SCREEN = document.querySelector(
+  ".phone-horizontal-screen"
+);
 const SUBMIT_BUTTON = document.querySelector(".submit-form-button");
 const MODAL = document.querySelector(".modal-container");
 const MODAL_BUTTON = document.querySelector(".modal-button");
@@ -22,6 +26,8 @@ const MODAL_SUBJECT = document.querySelector(".modal-subject");
 const MODAL_DESCRIPTION = document.querySelector(".modal-description");
 const NEXT_SLIDER_BUTTON = document.querySelector(".slider-next img");
 const PREV_SLIDER_BUTTON = document.querySelector(".slider-prev img");
+const HEADER_NAV = document.querySelector(".header-nav");
+const MOBILE_MENU = document.querySelector(".mobile-menu");
 
 // LIST ITEMS NAVIGATION
 function activateItem(listContainer, listItem, fnCallback) {
@@ -58,26 +64,11 @@ function onScroll(event) {
 
 // PORTFOLIO IMAGE SHUFFLE
 function shuffle() {
-  var container = document.querySelector(".projects");
-  var elementsArray = Array.prototype.slice.call(
-    container.getElementsByClassName("project")
-  );
-  elementsArray.forEach(function(element) {
-    container.removeChild(element);
-  });
-  shuffleArray(elementsArray);
-  elementsArray.forEach(function(element) {
-    container.appendChild(element);
-  });
-}
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
+  let portfolioWorks = [...document.querySelectorAll(".project")];
+  let portfolio = document.querySelector(".projects");
+  let lastElem = portfolioWorks.pop();
+  portfolioWorks.unshift(lastElem);
+  portfolio.prepend(lastElem);
 }
 
 // HEADER NAVIGATION
@@ -183,6 +174,7 @@ function nextItem(n) {
   changeCurrentItem(n + 1);
   showItem("from-right");
 }
+
 function previousItem(n) {
   hideItem("to-right");
   changeCurrentItem(n - 1);
@@ -199,4 +191,9 @@ NEXT_SLIDER_BUTTON.addEventListener("click", function() {
   if (isEnabled) {
     nextItem(currentItem);
   }
+});
+
+// MOBILE MENU TOGGLE ACTIVE CLASS
+MOBILE_MENU.addEventListener("click", () => {
+  HEADER_NAV.classList.toggle("active");
 });
