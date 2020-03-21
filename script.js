@@ -1,18 +1,16 @@
 // CONST
+const SECTION = document.querySelectorAll("body .section");
 const MENU = document.getElementById("menu");
+const MENU_LIST_ITEM = MENU.querySelectorAll("#menu li a");
 const MENU_ITEM = MENU.querySelectorAll("li a");
 const PORTFOLIO_TAB = document.getElementById("portfolio-tabs");
 const PORTFOLIO_TAB_ITEM = PORTFOLIO_TAB.getElementsByTagName("li");
 const PORTFOLIO_PROJECT = document.querySelector(".projects");
-const PORTFOLIO_PROJECT_ITEM = PORTFOLIO_PROJECT.querySelectorAll(
-  ".project img"
-);
+const PORTFOLIO_PROJECT_ITEM = PORTFOLIO_PROJECT.querySelectorAll(".project img");
 const VERTICAL_PHONE = document.querySelector(".phone-vertical-block");
 const HORIZONTAL_PHONE = document.querySelector(".phone-horizontal-block");
 const VERTICAL_PHONE_SCREEN = document.querySelector(".phone-vertical-screen");
-const HORIZONTAL_PHONE_SCREEN = document.querySelector(
-  ".phone-horizontal-screen"
-);
+const HORIZONTAL_PHONE_SCREEN = document.querySelector(".phone-horizontal-screen");
 const SUBMIT_BUTTON = document.querySelector(".submit-form-button");
 const MODAL = document.querySelector(".modal-container");
 const MODAL_BUTTON = document.querySelector(".modal-button");
@@ -28,7 +26,7 @@ const PREV_SLIDER_BUTTON = document.querySelector(".slider-prev img");
 // LIST ITEMS NAVIGATION
 function activateItem(listContainer, listItem, fnCallback) {
   for (var i = 0; i < listItem.length; i++) {
-    listItem[i].addEventListener("click", function() {
+    listItem[i].addEventListener("click", function () {
       var el = listContainer.querySelectorAll(".active");
       if (fnCallback) fnCallback(frq, projectsArray);
       if (el.length > 0) {
@@ -37,6 +35,22 @@ function activateItem(listContainer, listItem, fnCallback) {
       this.className += "active";
     });
   }
+}
+
+// LIST ITEMS TO SECTIONS NAVIGATION
+document.addEventListener("scroll", onScroll);
+function onScroll(event) {
+  const CURRENT_POSITION = window.scrollY;
+  SECTION.forEach(el => {
+    if (el.offsetTop <= CURRENT_POSITION + 95 && (el.offsetTop + el.offsetHeight) > CURRENT_POSITION) {
+      MENU_LIST_ITEM.forEach(a => {
+        a.classList.remove("active");
+        if (el.getAttribute("id") === a.getAttribute("href").substring(1)) {
+          a.classList.add("active");
+        }
+      });
+    }
+  });
 }
 
 // PORTFOLIO IMAGE SHUFFLE

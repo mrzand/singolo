@@ -28,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 94px;
 }
 
 body {
@@ -56,6 +57,12 @@ main {
 
 /* HEADER */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 1020px;
+  margin: 0 auto;
   height: 95px;
   display: flex;
   align-items: center;
@@ -66,6 +73,7 @@ header {
   font-family: "Lato Bold";
   text-transform: uppercase;
   color: #fff;
+  z-index: 4;
 }
 
 .logo {
@@ -133,6 +141,8 @@ header ul li a:hover {
 .slider {
   height: 600px;
   position: relative;
+  margin-top: 95px;
+  overflow: hidden;
 }
 
 .card {
@@ -140,10 +150,6 @@ header ul li a:hover {
   align-items: center;
   justify-content: center;
   padding: 0 111.5px;
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1s;
-  animation-name: fade;
-  animation-duration: 1s;
 }
 
 .card.first {
