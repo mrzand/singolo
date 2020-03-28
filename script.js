@@ -28,11 +28,12 @@ const NEXT_SLIDER_BUTTON = document.querySelector(".slider-next img");
 const PREV_SLIDER_BUTTON = document.querySelector(".slider-prev img");
 const HEADER_NAV = document.querySelector(".header-nav");
 const MOBILE_MENU = document.querySelector(".mobile-menu");
+const OVERFLOW_BLOCK = document.querySelector(".overflow-block");
 
 // LIST ITEMS NAVIGATION
 function activateItem(listContainer, listItem, fnCallback) {
   for (var i = 0; i < listItem.length; i++) {
-    listItem[i].addEventListener("click", function() {
+    listItem[i].addEventListener("click", function () {
       var el = listContainer.querySelectorAll(".active");
       if (fnCallback) fnCallback();
       if (el.length > 0) {
@@ -157,13 +158,13 @@ function changeCurrentItem(n) {
 function hideItem(direction) {
   isEnabled = false;
   items[currentItem].classList.add(direction);
-  items[currentItem].addEventListener("animationend", function() {
+  items[currentItem].addEventListener("animationend", function () {
     this.classList.remove("active", direction);
   });
 }
 function showItem(direction) {
   items[currentItem].classList.add("next", direction);
-  items[currentItem].addEventListener("animationend", function() {
+  items[currentItem].addEventListener("animationend", function () {
     this.classList.remove("next", direction);
     this.classList.add("active");
     isEnabled = true;
@@ -181,13 +182,13 @@ function previousItem(n) {
   showItem("from-left");
 }
 
-PREV_SLIDER_BUTTON.addEventListener("click", function() {
+PREV_SLIDER_BUTTON.addEventListener("click", function () {
   if (isEnabled) {
     previousItem(currentItem);
   }
 });
 
-NEXT_SLIDER_BUTTON.addEventListener("click", function() {
+NEXT_SLIDER_BUTTON.addEventListener("click", function () {
   if (isEnabled) {
     nextItem(currentItem);
   }
@@ -196,4 +197,6 @@ NEXT_SLIDER_BUTTON.addEventListener("click", function() {
 // MOBILE MENU TOGGLE ACTIVE CLASS
 MOBILE_MENU.addEventListener("click", () => {
   HEADER_NAV.classList.toggle("active");
+  MOBILE_MENU.classList.toggle("active");
+  OVERFLOW_BLOCK.classList.toggle("active");
 });
