@@ -1,5 +1,6 @@
 // CONST
 const SECTION = document.querySelectorAll("body .section");
+const HEADER = document.getElementById("header");
 const MENU = document.getElementById("menu");
 const MENU_LIST_ITEM = MENU.querySelectorAll("#menu li a");
 const MENU_ITEM = MENU.querySelectorAll("li a");
@@ -16,6 +17,7 @@ const HORIZONTAL_PHONE_SCREEN = document.querySelector(
   ".phone-horizontal-screen"
 );
 const SUBMIT_BUTTON = document.querySelector(".submit-form-button");
+const SUBMIT_FORM = document.querySelector(".form-container");
 const MODAL = document.querySelector(".modal-container");
 const MODAL_BUTTON = document.querySelector(".modal-button");
 const INPUT_NAME = document.getElementById("name");
@@ -28,6 +30,7 @@ const NEXT_SLIDER_BUTTON = document.querySelector(".slider-next img");
 const PREV_SLIDER_BUTTON = document.querySelector(".slider-prev img");
 const HEADER_NAV = document.querySelector(".header-nav");
 const MOBILE_MENU = document.querySelector(".mobile-menu");
+const OVERFLOW_BLOCK = document.querySelector(".overflow-block");
 
 // LIST ITEMS NAVIGATION
 function activateItem(listContainer, listItem, fnCallback) {
@@ -72,7 +75,7 @@ function shuffle() {
 }
 
 // HEADER NAVIGATION
-activateItem(MENU, MENU_ITEM);
+activateItem(MENU, MENU_ITEM, menuAction);
 
 // PORTFOLIO IMAGE NAVIGATION
 activateItem(PORTFOLIO_PROJECT, PORTFOLIO_PROJECT_ITEM);
@@ -108,6 +111,11 @@ SUBMIT_BUTTON.addEventListener("click", () => {
     MODAL_DESCRIPTION.innerText = "Описание: " + description;
   }
   MODAL.classList.add("active");
+});
+
+// FORM SUBMIT DISABLED
+SUBMIT_FORM.addEventListener("submit", () => {
+  event.preventDefault();
 });
 
 // INPUT VALIDATION
@@ -174,19 +182,16 @@ function nextItem(n) {
   changeCurrentItem(n + 1);
   showItem("from-right");
 }
-
 function previousItem(n) {
   hideItem("to-right");
   changeCurrentItem(n - 1);
   showItem("from-left");
 }
-
 PREV_SLIDER_BUTTON.addEventListener("click", function() {
   if (isEnabled) {
     previousItem(currentItem);
   }
 });
-
 NEXT_SLIDER_BUTTON.addEventListener("click", function() {
   if (isEnabled) {
     nextItem(currentItem);
@@ -195,5 +200,17 @@ NEXT_SLIDER_BUTTON.addEventListener("click", function() {
 
 // MOBILE MENU TOGGLE ACTIVE CLASS
 MOBILE_MENU.addEventListener("click", () => {
-  HEADER_NAV.classList.toggle("active");
+  HEADER.classList.toggle("active-menu");
 });
+
+// CLOSE MOBILE MENU ON BLUR CLICK
+OVERFLOW_BLOCK.addEventListener("click", () => {
+  HEADER.classList.remove("active-menu");
+});
+
+// CLOSE MOBILE MENU ON NAV LINK CLICK
+function menuAction() {
+  setTimeout(function() {
+    HEADER.classList.remove("active-menu");
+  }, 200);
+}

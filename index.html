@@ -11,8 +11,10 @@
 <body>
   <main id="main" class="section">
     <!-- HEADER -->
-    <header>
-      <div class="mobile-menu"><img src="./assets/img/burger-menu-icon.svg" alt="menu"></div>
+    <header id="header">
+      <div class="mobile-menu">
+        <img src="./assets/img/burger-menu-icon.svg" alt="menu" />
+      </div>
       <h1 class="logo">
         singolo
         <span>*</span>
@@ -26,6 +28,7 @@
           <li><a href="#quote">contact</a></li>
         </ul>
       </nav>
+      <div class="overflow-block"></div>
     </header>
     <!-- SLIDER SECTION -->
     <div class="slider">
@@ -36,18 +39,20 @@
         <img src="./assets/img/right-arrow.png" alt="next" />
       </div>
       <div class="card first active">
-        <div class="phone-vertical-wrapper">
-          <div class="phone-vertical">
-            <img class="phone-vertical-img" src="./assets/img/phone-vertical.png" alt="phone" />
-            <img class="phone-vertical-screen" src="./assets/img/phone-vertical-screen.jpg" alt="phone-screen" />
-            <div class="phone-vertical-block"></div>
+        <div class="card-wrapper">
+          <div class="phone-vertical-wrapper">
+            <div class="phone-vertical">
+              <img class="phone-vertical-img" src="./assets/img/phone-vertical.png" alt="phone" />
+              <img class="phone-vertical-screen" src="./assets/img/phone-vertical-screen.jpg" alt="phone-screen" />
+              <div class="phone-vertical-block"></div>
+            </div>
           </div>
-        </div>
-        <div class="phone-horizontal-wrapper">
-          <div class="phone-horizontal">
-            <img class="phone-horizontal-img" src="./assets/img/phone-horizontal.png" alt="phone" />
-            <img class="phone-horizontal-screen" src="./assets/img/phone-horizontal-screen.jpg" alt="phone-screen" />
-            <div class="phone-horizontal-block"></div>
+          <div class="phone-horizontal-wrapper">
+            <div class="phone-horizontal">
+              <img class="phone-horizontal-img" src="./assets/img/phone-horizontal.png" alt="phone" />
+              <img class="phone-horizontal-screen" src="./assets/img/phone-horizontal-screen.jpg" alt="phone-screen" />
+              <div class="phone-horizontal-block"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,74 +70,67 @@
         lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo,
         tortor mauris condimentum nibh.
       </p>
-      <div class="services-row">
-        <div class="services-cards">
-          <div class="services-card">
-            <img class="services-card-image" src="./assets/img/service-pen.svg" alt="pen" />
-            <div class="services-card-wrapper">
-              <h3 class="services-card-title">Custom Design</h3>
-              <p class="services-card-description">
-                Curabitur vestibulum eget mauris quis laoreet. Phasellus in
-                quam laoreet, viverra lacus ut, ultrices velit.
-              </p>
-            </div>
+      <div class="services-cards">
+        <div class="services-card">
+          <img class="services-card-image" src="./assets/img/service-pen.svg" alt="pen" />
+          <div class="services-card-wrapper">
+            <h3 class="services-card-title">Custom Design</h3>
+            <p class="services-card-description">
+              Curabitur vestibulum eget mauris quis laoreet. Phasellus in
+              quam laoreet, viverra lacus ut, ultrices velit.
+            </p>
           </div>
-          <div class="services-card">
-            <img class="services-card-image" src="./assets/img/service-bulb.svg" alt="bulb" />
-            <div class="services-card-wrapper">
-              <h3 class="services-card-title">Inovative Ideas</h3>
-              <p class="services-card-description">
-                Quisque luctus, quam eget molestie commodo, lacus purus cursus
-                purus, nec rutrum tellus dolor id lorem.
-              </p>
-            </div>
+        </div>
+        <div class="services-card">
+          <img class="services-card-image" src="./assets/img/service-bulb.svg" alt="bulb" />
+          <div class="services-card-wrapper">
+            <h3 class="services-card-title">Inovative Ideas</h3>
+            <p class="services-card-description">
+              Quisque luctus, quam eget molestie commodo, lacus purus cursus
+              purus, nec rutrum tellus dolor id lorem.
+            </p>
           </div>
-          <div class="services-card">
-            <img class="services-card-image" src="./assets/img/service-heart.svg" alt="heart" />
-            <div class="services-card-wrapper">
-              <h3 class="services-card-title">Love Is The Answer</h3>
-              <p class="services-card-description">
-                Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet
-                turpis, et consequat felis. Quisque condimentum.
-              </p>
+        </div>
+        <div class="services-card">
+          <img class="services-card-image" src="./assets/img/service-heart.svg" alt="heart" />
+          <div class="services-card-wrapper">
+            <h3 class="services-card-title">Love Is The Answer</h3>
+            <p class="services-card-description">
+              Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet
+              turpis, et consequat felis. Quisque condimentum.
+            </p>
+          </div>
+        </div>
+        <div class="services-card">
+          <img class="services-card-image" src="./assets/img/service-phone.svg" alt="phone" />
+          <div class="services-card-wrapper">
+            <h3 class="services-card-title">Responsive Layout</h3>
+            <div class="services-card-description">
+              Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas
+              blandit nunc ligula. Prae sent elit leo.
             </div>
           </div>
         </div>
-      </div>
-      <div class="services-row">
-        <div class="services-cards">
-          <div class="services-card">
-            <img class="services-card-image" src="./assets/img/service-phone.svg" alt="phone" />
-            <div class="services-card-wrapper">
-              <h3 class="services-card-title">Responsive Layout</h3>
-              <div class="services-card-description">
-                Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas
-                blandit nunc ligula. Prae sent elit leo.
-              </div>
-            </div>
-          </div>
-          <div class="services-card">
-            <img class="services-card-image" src="./assets/img/service-bubble.svg" alt="bubble" />
-            <div class="services-card-wrapper">
-              <h3 class="services-card-title">24/ 7 Support</h3>
-              <p class="services-card-description">
-                Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi.
-                Nulla a sem erat. Pellentesque egestas venenatis lorem .
-              </p>
-            </div>
-          </div>
-          <div class="services-card">
-            <img class="services-card-image" src="./assets/img/service-star.svg" alt="star" />
-            <div class="services-card-wrapper">
-              <h3 class="services-card-title">Feel Like A Star</h3>
-              <p class="services-card-description">
-                Quisque hendrerit purus dapibus, ornare nibh vitae, viverra
-                nibh. Fusce vitae aliquam tellus.
-              </p>
-            </div>
+        <div class="services-card">
+          <img class="services-card-image" src="./assets/img/service-bubble.svg" alt="bubble" />
+          <div class="services-card-wrapper">
+            <h3 class="services-card-title">24 / 7 Support</h3>
+            <p class="services-card-description">
+              Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi.
+              Nulla a sem erat. Pellentesque egestas venenatis lorem .
+            </p>
           </div>
         </div>
-      </div>
+        <div class="services-card">
+          <img class="services-card-image" src="./assets/img/service-star.svg" alt="star" />
+          <div class="services-card-wrapper">
+            <h3 class="services-card-title">Feel Like A Star</h3>
+            <p class="services-card-description">
+              Quisque hendrerit purus dapibus, ornare nibh vitae, viverra
+              nibh. Fusce vitae aliquam tellus.
+            </p>
+          </div>
+        </div>
     </section>
     <!-- PORTFOLIO SECTION -->
     <section class="portfolio section" id="portfolio">
@@ -282,7 +280,7 @@
           <input type="text" id="subject" placeholder="Subject" />
           <textarea id="description" name="describe" cols="30" rows="10"
             placeholder="Describe your project in detail..."></textarea>
-          <button type="button" class="submit-form-button">Submit</button>
+          <button type="submit" class="submit-form-button">Submit</button>
         </form>
         <div class="info-container">
           <p class="info-title">Contact Information</p>
