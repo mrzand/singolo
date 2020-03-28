@@ -905,10 +905,19 @@ footer {
 
 /* MEDIA */
 @media (max-width: 1019px) {
-  /* main,
-  header {
-    max-width: 768px;
-  } */
+  header ul {
+    bottom: -3px;
+    left: -2px;
+  }
+
+  header ul li a {
+    letter-spacing: -0.035em;
+  }
+
+  header ul li:after {
+    margin: 0 15px;
+    background-color: #fff;
+  }
 
   .slider {
     height: 452px;
@@ -942,13 +951,15 @@ footer {
   .phone-vertical-img {
     width: 180px;
     height: 364px;
+    top: 2px;
+    right: 0px;
   }
 
   .phone-vertical-screen {
     width: 146px;
     height: 255px;
-    top: 46px;
-    right: 29px;
+    top: 49px;
+    right: 26px;
   }
 
   .phone-vertical-block {
@@ -959,13 +970,15 @@ footer {
   .phone-horizontal-img {
     width: 364px;
     height: 180px;
+    top: 3px;
+    right: 0px;
   }
 
   .phone-horizontal-screen {
-    width: 253px;
+    width: 255px;
     height: 144px;
-    top: 9px;
-    right: 63px;
+    top: 12px;
+    right: 65px;
   }
 
   .phone-horizontal-block {
@@ -977,10 +990,57 @@ footer {
     height: 346px;
   }
 
+  .slider-prev img {
+    top: 0px;
+    left: -6px;
+  }
+
+  .slider-next img {
+    top: 0px;
+    left: 7px;
+  }
+
   .services-card {
-    width: 47%;
+    width: 48.4%;
     min-width: 300px;
     max-width: 430px;
+    padding-bottom: 51px;
+  }
+
+  .services-card-description {
+    font-size: 12px;
+    line-height: 22px;
+    margin-right: 32px;
+  }
+
+  .services {
+    padding: 39px 40px 15px 40px;
+  }
+
+  .services-description {
+    line-height: 30px;
+    word-spacing: 0;
+  }
+
+  .services-cards {
+    padding-top: 38px;
+  }
+
+  .portfolio {
+    padding: 59px 0px 47px 0;
+  }
+
+  .portfolio p {
+    letter-spacing: 0.2px;
+    padding: 19px 40px 0 40px;
+  }
+
+  .portfolio ul {
+    padding: 12px 40px 0 40px;
+  }
+
+  .projects {
+    padding: 28px 30px 0 30px;
   }
 
   .project {
@@ -989,8 +1049,42 @@ footer {
     height: auto;
   }
 
+  .about {
+    padding: 52px 40px 64px 40px;
+  }
+
+  .about .section-description {
+    line-height: 30px;
+  }
+
+  .about-row {
+    margin-top: 39px;
+  }
+
+  .card-name {
+    padding-top: 6px;
+  }
+
+  .about-card:nth-child(1) .card-name {
+    left: 1px;
+  }
+
+  .about-card:nth-child(2) .card-name {
+    left: 1px;
+  }
+
+  .card-description {
+    padding-top: 0;
+    letter-spacing: 0px;
+    line-height: 22px;
+  }
+
+  .card-socials {
+    padding-top: 12px;
+  }
+
   .form-container {
-    min-width: 65%;
+    min-width: 64%;
     margin-right: 30px;
   }
 
@@ -1002,8 +1096,50 @@ footer {
     line-height: 30px;
   }
 
+  .portfolio h2 {
+    letter-spacing: 0;
+  }
+
   .quote {
-    padding: 60px 40px 20px 40px;
+    padding: 54px 40px 23px 40px;
+  }
+
+  .quote .section-description {
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+
+  .quote h2 {
+    letter-spacing: 0.2px;
+  }
+
+  .quote-form {
+    margin-top: 25px;
+  }
+
+  .form-container input {
+    margin-bottom: 12px;
+    padding: 0 8px;
+  }
+
+  .form-container textarea {
+    height: 159px;
+    padding: 8px 9px;
+    margin-bottom: 17px;
+  }
+
+  .info-description {
+    margin-top: 0;
+  }
+
+  .contact-list {
+    margin-top: 9px;
+  }
+
+  .footer-socials a {
+    margin-right: 4px;
+    position: relative;
+    right: 2px;
   }
 }
 
@@ -1035,11 +1171,12 @@ footer {
     display: block;
     position: fixed;
     left: 20px;
+    top: 26px;
     z-index: 6;
     transition: transform 0.2s;
   }
 
-  .mobile-menu.active {
+  header.active-menu .mobile-menu {
     transform: rotate(-90deg);
   }
 
@@ -1052,7 +1189,7 @@ footer {
     top: 0;
     bottom: 0;
     z-index: 5;
-    transform: translateX(-100%);
+    transform: translateX(-120%);
     transition: transform 0.3s;
   }
 
@@ -1063,14 +1200,15 @@ footer {
     top: 0;
     bottom: 0;
     padding-left: 71px;
+    padding-top: 84%;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     background: #2d303a;
     box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .header-nav.active {
+  header.active-menu .header-nav {
     transform: translateX(0);
   }
 
@@ -1085,15 +1223,39 @@ footer {
   }
 
   header ul li {
-    margin-bottom: 27px;
+    margin-bottom: 28px;
   }
 
   header ul li:last-child {
     margin-bottom: 0;
   }
 
-  .header-nav.active {
+  header.active-menu .header-nav {
     display: flex;
+  }
+
+  header {
+    height: 71px;
+    justify-content: flex-start;
+  }
+
+  header ul li a:hover {
+    color: #fff;
+  }
+
+  header .logo {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.03em;
+    top: 3px;
+    margin-left: calc(50vw - 70px);
+    z-index: 6;
+    transition: margin-left 0.4s;
+  }
+
+  header.active-menu .logo {
+    margin-left: 42px;
+    transition: margin-left 0.3s;
   }
 
   .card-wrapper {
@@ -1111,13 +1273,15 @@ footer {
   .phone-vertical-img {
     width: 88px;
     height: 177px;
+    top: 3px;
+    right: 1px;
   }
 
   .phone-vertical-screen {
-    width: 70px;
-    height: 122px;
-    top: 23px;
-    right: 16px;
+    width: 71px;
+    height: 123px;
+    top: 26px;
+    right: 14px;
   }
 
   .phone-vertical-block {
@@ -1128,13 +1292,15 @@ footer {
   .phone-horizontal-img {
     width: 177px;
     height: 88px;
+    top: 4px;
+    right: 1px;
   }
 
   .phone-horizontal-screen {
-    width: 123px;
+    width: 124px;
     height: 69px;
-    top: 4px;
-    right: 29px;
+    top: 9px;
+    right: 33px;
   }
 
   .phone-horizontal-block {
@@ -1148,6 +1314,10 @@ footer {
     top: 6px;
   }
 
+  .slider {
+    margin-top: 71px;
+  }
+
   .slider-next,
   .slider-prev {
     width: 40px;
@@ -1155,7 +1325,35 @@ footer {
 
   .slider-next img,
   .slider-prev img {
-    width: 12px;
+    width: 14px;
+  }
+
+  .slider-prev img {
+    top: 1px;
+    left: -3px;
+  }
+
+  .services {
+    padding: 26px 32px 16px 32px;
+  }
+
+  .slider-next img {
+    top: 0px;
+    left: 3px;
+  }
+
+  .services-cards {
+    padding-top: 30px;
+  }
+
+  .services-card-title {
+    top: -4px;
+  }
+
+  .services-card:last-child {
+    padding-bottom: 0;
+    position: relative;
+    top: -2px;
   }
 
   .card {
@@ -1164,29 +1362,119 @@ footer {
 
   .about-row {
     flex-wrap: wrap;
+    margin-top: 24px;
   }
 
   .about-card {
     width: 100%;
     max-width: 100%;
     margin-right: 0;
-    margin-bottom: 34px;
+    margin-bottom: 28px;
   }
 
   .about-card:last-child {
     margin-bottom: 0;
   }
 
-  .card-socials {
+  .services-card-description {
+    margin-right: 0;
+  }
+
+  .about {
+    padding: 32px 30px 32px 30px;
+  }
+
+  .about .section-description {
+    padding-top: 19px;
+    line-height: 30px;
+    letter-spacing: 0;
+  }
+
+  .about-card:nth-child(2) .card-name {
+    left: 2px;
+    top: 4px;
+  }
+
+  .about-card:nth-child(2) .card-description {
+    left: 2px;
+    top: 4px;
+  }
+
+  .about-card:nth-child(2) .card-socials {
+    padding-top: 15px;
+    position: relative;
+    left: 2px;
+    top: 1px;
+  }
+
+  .about-card:nth-child(1) .card-name {
+    position: relative;
+    left: 2px;
     padding-top: 9px;
   }
 
+  .about-card:nth-child(3) .card-name {
+    left: 2px;
+    position: relative;
+    padding-top: 15px;
+  }
+
+  .card-socials {
+    padding-top: 15px;
+    position: relative;
+    left: 2px;
+    top: -2px;
+  }
+
+  .card-description {
+    position: relative;
+    top: 2px;
+    left: 2px;
+  }
+
   .projects {
-    padding: 18px 20px 0 20px;
+    padding: 26px 24px 0 24px;
+  }
+
+  .project {
+    width: calc(50% - 14px);
+    height: auto;
+    min-width: calc(50% - 14px);
+    margin: 0 6px 14px 7px;
+  }
+
+  .portfolio {
+    padding: 42px 0px 22px 0;
+  }
+
+  .portfolio p {
+    letter-spacing: 0.1px;
+  }
+
+  .portfolio ul {
+    padding: 15px 30px 0 30px;
+  }
+
+  .quote {
+    padding: 46px 30px 36px 30px;
   }
 
   .quote-form {
     flex-wrap: wrap;
+    margin-top: 22px;
+  }
+
+  .quote-form button {
+    height: 48px;
+    margin-bottom: 30px;
+  }
+
+  .contact-list li a {
+    line-height: 24px;
+  }
+
+  .contact-list {
+    margin-top: 11px;
   }
 
   .form-container {
@@ -1202,60 +1490,77 @@ footer {
     display: none;
   }
 
-  .overflow-block.active {
+  .footer-socials {
+    left: 2px;
+    top: -1px;
+    position: relative;
+  }
+
+  header.active-menu .overflow-block {
     display: block;
+  }
+
+  .services-card {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    padding-bottom: 26.8px;
+  }
+
+  .modal {
+    width: 80%;
+  }
+
+  .project:nth-child(n + 9) {
+    display: none;
   }
 }
-/* 
+
 @media (max-width: 374px) {
-  header,
-  .services,
-  .portfolio p,
-  .portfolio h2,
-  .about {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  header {
-    justify-content: center;
-  }
-
-  .logo {
-    top: -3px;
-    margin-left: 12px;
-  }
-
-  .mobile-menu {
-    display: block;
-    position: fixed;
-    left: 20px;
-    z-index: 6;
-  }
-
-  .header-nav {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background: rgba(45, 48, 58, 0.6);
-    z-index: 5;
-  }
-
   .header-nav ul {
-    width: 278px;
-    height: 100%;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background: #2d303a;
-    box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+    padding-top: 60%;
   }
 
-  .header-nav.active {
-    display: flex;
+  .phone-vertical-img {
+    width: 70px;
+    height: 150px;
+    top: 3px;
+    right: 1px;
   }
-} */
+
+  .phone-horizontal-img {
+    width: 150px;
+    height: 70px;
+  }
+
+  .phone-vertical-screen {
+    width: 55px;
+    height: 104px;
+    top: 23px;
+    right: 12px;
+  }
+
+  .phone-horizontal-screen {
+    width: 104px;
+    height: 55px;
+    top: 8px;
+    right: 29px;
+  }
+
+  .phone-vertical-block {
+    width: 64px;
+    height: 144px;
+  }
+
+  .phone-horizontal-block {
+    width: 145px;
+    height: 64px;
+    left: -3px;
+    top: 3px;
+  }
+
+  .portfolio li {
+    font-size: 10px;
+    margin-right: 4px;
+  }
+}

@@ -1,5 +1,6 @@
 // CONST
 const SECTION = document.querySelectorAll("body .section");
+const HEADER = document.getElementById("header");
 const MENU = document.getElementById("menu");
 const MENU_LIST_ITEM = MENU.querySelectorAll("#menu li a");
 const MENU_ITEM = MENU.querySelectorAll("li a");
@@ -16,6 +17,7 @@ const HORIZONTAL_PHONE_SCREEN = document.querySelector(
   ".phone-horizontal-screen"
 );
 const SUBMIT_BUTTON = document.querySelector(".submit-form-button");
+const SUBMIT_FORM = document.querySelector(".form-container");
 const MODAL = document.querySelector(".modal-container");
 const MODAL_BUTTON = document.querySelector(".modal-button");
 const INPUT_NAME = document.getElementById("name");
@@ -33,7 +35,7 @@ const OVERFLOW_BLOCK = document.querySelector(".overflow-block");
 // LIST ITEMS NAVIGATION
 function activateItem(listContainer, listItem, fnCallback) {
   for (var i = 0; i < listItem.length; i++) {
-    listItem[i].addEventListener("click", function () {
+    listItem[i].addEventListener("click", function() {
       var el = listContainer.querySelectorAll(".active");
       if (fnCallback) fnCallback();
       if (el.length > 0) {
@@ -73,7 +75,7 @@ function shuffle() {
 }
 
 // HEADER NAVIGATION
-activateItem(MENU, MENU_ITEM);
+activateItem(MENU, MENU_ITEM, menuAction);
 
 // PORTFOLIO IMAGE NAVIGATION
 activateItem(PORTFOLIO_PROJECT, PORTFOLIO_PROJECT_ITEM);
@@ -109,6 +111,11 @@ SUBMIT_BUTTON.addEventListener("click", () => {
     MODAL_DESCRIPTION.innerText = "Описание: " + description;
   }
   MODAL.classList.add("active");
+});
+
+// FORM SUBMIT DISABLED
+SUBMIT_FORM.addEventListener("submit", () => {
+  event.preventDefault();
 });
 
 // INPUT VALIDATION
@@ -158,13 +165,13 @@ function changeCurrentItem(n) {
 function hideItem(direction) {
   isEnabled = false;
   items[currentItem].classList.add(direction);
-  items[currentItem].addEventListener("animationend", function () {
+  items[currentItem].addEventListener("animationend", function() {
     this.classList.remove("active", direction);
   });
 }
 function showItem(direction) {
   items[currentItem].classList.add("next", direction);
-  items[currentItem].addEventListener("animationend", function () {
+  items[currentItem].addEventListener("animationend", function() {
     this.classList.remove("next", direction);
     this.classList.add("active");
     isEnabled = true;
@@ -175,20 +182,17 @@ function nextItem(n) {
   changeCurrentItem(n + 1);
   showItem("from-right");
 }
-
 function previousItem(n) {
   hideItem("to-right");
   changeCurrentItem(n - 1);
   showItem("from-left");
 }
-
-PREV_SLIDER_BUTTON.addEventListener("click", function () {
+PREV_SLIDER_BUTTON.addEventListener("click", function() {
   if (isEnabled) {
     previousItem(currentItem);
   }
 });
-
-NEXT_SLIDER_BUTTON.addEventListener("click", function () {
+NEXT_SLIDER_BUTTON.addEventListener("click", function() {
   if (isEnabled) {
     nextItem(currentItem);
   }
@@ -196,7 +200,17 @@ NEXT_SLIDER_BUTTON.addEventListener("click", function () {
 
 // MOBILE MENU TOGGLE ACTIVE CLASS
 MOBILE_MENU.addEventListener("click", () => {
-  HEADER_NAV.classList.toggle("active");
-  MOBILE_MENU.classList.toggle("active");
-  OVERFLOW_BLOCK.classList.toggle("active");
+  HEADER.classList.toggle("active-menu");
 });
+
+// CLOSE MOBILE MENU ON BLUR CLICK
+OVERFLOW_BLOCK.addEventListener("click", () => {
+  HEADER.classList.remove("active-menu");
+});
+
+// CLOSE MOBILE MENU ON NAV LINK CLICK
+function menuAction() {
+  setTimeout(function() {
+    HEADER.classList.remove("active-menu");
+  }, 200);
+}
